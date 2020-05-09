@@ -1,0 +1,28 @@
+<script>
+  createMatrix(2);
+
+  function createMatrix(ordo){
+    var matrix = new Array(ordo).fill(0).map(() => new Array(ordo).fill(0));//Inisialisasi variabel array 2D dengan size [ordo][ordo] dan value default 0
+    var leftD = 0; //Jumlah value diagonal kiri
+    var rightD = 0; //Jumlah value diagonal kanan
+
+    for(var i=0;i<ordo;i++){      
+      for(var a=0;a<ordo;a++){
+        matrix[i][a] = Math.floor(Math.random() * 99)+1; //Mengisi variable matrix dengan nilai random 1 - 99
+
+        //Mengecek apakah index [i][a] merupakan diagonal kiri
+        if(i == a){
+          leftD+=matrix[i][a]; //Menambah value diagonal kiri dengan matrix[i][a]
+        }
+
+        //Mengecek apakah index [i][a] merupakan diagonal kanan
+        if(i+a == (ordo-1)){
+          rightD+=matrix[i][a]; // Menambah value diagonal kanan dengan matrix[i][a]
+        }
+      } 
+    }
+
+    console.log(matrix);
+    console.log(leftD+rightD);
+  }  
+</script>
